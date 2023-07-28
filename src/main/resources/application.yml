@@ -1,0 +1,28 @@
+server:
+  port : 8081
+# Keycloak Config
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://localhost:8443/realms/dev
+          jwk-set-uri: https://localhost:8443/realms/dev/protocol/openid-connect/certs
+#spring.security.oauth2.resourceserver.jwt.jwk-set-uri=http://localhost:9090/realms/spring-boot-realm-dev/protocol/openid-connect/certs
+
+#jwt.auth.converter.resource-id=spring-client-api-rest
+#jwt.auth.converter.principle-attribute=preferred_username
+
+  #jwt.auth.converter.resource-id=spring-client-api-rest
+  #jwt.auth.converter.principle-attribute=preferred_username
+# JWT Config
+jwt:
+  auth:
+    converter:
+      resource-id: client-api
+      principle-attribute: preferred_username
+logging:
+  level:
+    org:
+      keycloak: DEBUG
+    root: INFO
