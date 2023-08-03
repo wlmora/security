@@ -1,0 +1,31 @@
+type Query {
+    secureNone: String
+    secureUser: String
+    secureAdmin: String
+    users(usernameFilter: String): [User]
+}
+
+type Mutation {
+    createUser(input: UserInput): User
+    deleteUser(id: String): Boolean
+    updateUser(id: String, input: UserInput): User
+}
+
+input UserInput {
+    username: String
+    email: String
+    firstname: String
+    lastname: String
+    password: String
+    roles:  [String]
+}
+
+type User {
+    id: String
+    username: String
+    email: String
+    firstname: String
+    lastname: String
+    password: String
+    roles: [String]
+}
